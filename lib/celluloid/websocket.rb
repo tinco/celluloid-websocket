@@ -7,6 +7,8 @@ module Celluloid
 	class WebSocket
 		extend Forwardable
 
+		BUFFER_SIZE = 16384
+
 		CASE_INSENSITIVE_HASH = Hash.new do |hash, key|
 			hash[hash.keys.find {|k| k =~ /#{key}/i}] if key
 		end
@@ -67,10 +69,10 @@ module Celluloid
 		alias read_interval  read_every
 		alias read_frequency read_every
 
-		def read
-			@parser.append @socket.readpartial(Connection::BUFFER_SIZE) until msg = @parser.next_message
-			ms
-g		rescue
+		def read(buffer_size = BUFFER_SIZE)
+			@parser.append @socket.readpartial(buffer_size) until msg = @parser.next_message
+			msg
+		rescue
 			cancel_timer!
 			raise
 		end
