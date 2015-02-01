@@ -28,7 +28,7 @@ class WebSocketEcho < Celluloid::WebSocket::Rack
 		@counter = 0
 	end
 
-	def on_message(message)
+	on_message do |message|
 		@counter += 1
 		write("#{@counter}: #{message}")
 	end
