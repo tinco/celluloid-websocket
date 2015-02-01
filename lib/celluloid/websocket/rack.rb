@@ -16,16 +16,16 @@ module Celluloid
 
 			def_delegators :@websocket, :socket, :env, :addr, :peeraddr, :read, :read_every, :write, :<<, :closed?, :close, :cancel_timer!
 
-			def call(env)
-				info "Called"
+			def self.call(env)
 				if env['HTTP_UPGRADE'].nil? || env['HTTP_UPGRADE'].downcase != 'websocket'
 					return [400, {}, "No Upgrade header or Upgrade not for websocket."]
 				end
 
 				env['rack.hijack'].call
 				socket = Celluloid::IO::RackSocket.new(env['rack.hijack_io'].to_io)
-				puts "Wrapped the socket"
-				async.initialize_websocket(env, socket)
+
+				actor = new()
+				actor.async.initialize_websocket(env, socket)
 				[200,{},""]
 			end
 

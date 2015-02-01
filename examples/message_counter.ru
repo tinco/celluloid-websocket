@@ -1,6 +1,10 @@
 require 'celluloid/websocket/rack'
 
 class WebSocketEcho < Celluloid::WebSocket::Rack
+	def initialize
+		puts "initialized"
+	end
+
 	def on_open
 		@counter = 0
 		puts "Got opened"
@@ -21,5 +25,4 @@ class WebSocketEcho < Celluloid::WebSocket::Rack
 	end
 end
 
-use Rack::ShowExceptions
-run(WebSocketEcho.new)
+run(WebSocketEcho)
