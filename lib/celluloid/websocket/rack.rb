@@ -1,4 +1,5 @@
 require 'celluloid/websocket'
+require 'celluloid/io/rack_socket'
 require 'rack/request'
 
 module Celluloid
@@ -10,7 +11,7 @@ module Celluloid
 				end
 
         		env['rack.hijack'].call
-				socket = env['rack.hijack_io']
+				socket = RackSocket.new(env['rack.hijack_io'])
 				initialize_websocket(env, socket)
 			end
 

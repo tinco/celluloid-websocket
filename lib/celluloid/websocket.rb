@@ -18,14 +18,8 @@ module Celluloid
 			@env = env
 			@socket = socket
 
-			puts env.inspect
-
 			# TODO we expect env to match the rack standard here.
-			headers = CASE_INSENSITIVE_HASH.merge Hash[env.select{|k,v| k =~ /^HTTP_/}.map{|k,v| [k[5..-1],v] }]
-
-			puts headers.inspect
-
-
+			headers = CASE_INSENSITIVE_HASH.merge Hash[env.select{|k,v| k =~ /^HTTP_/}.map{|k,v| [k[5..-1].gsub('_','-'),v] }]
 			req = ::Rack::Request.new(env)
 			handshake = ::WebSocket::ClientHandshake.new(:get, req.url, headers)
 
@@ -75,8 +69,8 @@ module Celluloid
 
 		def read
 			@parser.append @socket.readpartial(Connection::BUFFER_SIZE) until msg = @parser.next_message
-			msg
-		rescue
+			ms
+g		rescue
 			cancel_timer!
 			raise
 		end
