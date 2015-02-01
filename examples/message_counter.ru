@@ -22,4 +22,4 @@ class WebSocketEcho < Celluloid::WebSocket::Rack
 end
 
 use Rack::ShowExceptions
-run WebSocketEcho.new
+run(WebSocketEcho.new)

@@ -20,7 +20,7 @@ module Celluloid
 			@env = env
 			@socket = socket
 
-			# TODO we expect env to match the rack standard here.
+			# TODO we expect env to match the rack standard here, which might be awkward for non-rack servers (like Reel).
 			headers = CASE_INSENSITIVE_HASH.merge Hash[env.select{|k,v| k =~ /^HTTP_/}.map{|k,v| [k[5..-1].gsub('_','-'),v] }]
 			req = ::Rack::Request.new(env)
 			handshake = ::WebSocket::ClientHandshake.new(:get, req.url, headers)
