@@ -1,9 +1,15 @@
 require 'forwardable'
 require 'websocket_parser'
+require 'uri'
+require 'rack/request'
 
 module Celluloid
 	class WebSocket
 		extend Forwardable
+
+		CASE_INSENSITIVE_HASH = Hash.new do |hash, key|
+			hash[hash.keys.find {|k| k =~ /#{key}/i}] if key
+		end
 
 		attr_reader :socket, :env
 		def_delegators :@socket, :addr, :peeraddr
@@ -12,20 +18,22 @@ module Celluloid
 			@env = env
 			@socket = socket
 
-			headers = Hash[env.params.select{|k,v| k ~= /^HTTP_/}.map{|k,v| [k[5..-1]}]
-			headers['Upgrade'] ||= '' # bug in websocket_parser
+			puts env.inspect
 
-			handshake = ::WebSocket::ClientHandshake.new(:get, env.url, headers)
+			# TODO we expect env to match the rack standard here.
+			headers = CASE_INSENSITIVE_HASH.merge Hash[env.select{|k,v| k =~ /^HTTP_/}.map{|k,v| [k[5..-1],v] }]
+
+			puts headers.inspect
+
+
+			req = ::Rack::Request.new(env)
+			handshake = ::WebSocket::ClientHandshake.new(:get, req.url, headers)
 
 			if handshake.valid?
 				response = handshake.accept_response
 				response.render(socket)
 			else
 				error = handshake.errors.first
-
-				response = Response.new(400)
-				response.reason = handshake.errors.first
-				response.render(@socket)
 
 				raise HandshakeError, "error during handshake: #{error}"
 			end
@@ -101,6 +109,8 @@ module Celluloid
 		def cancel_timer!
 			@timer && @timer.cancel
 		end
-
+		
+		# Error occured during a WebSockets handshake
+		class HandshakeError < StandardError; end
 	end
 end

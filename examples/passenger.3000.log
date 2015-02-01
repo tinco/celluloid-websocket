@@ -695,3 +695,346 @@ App 15275 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thr
 App 15275 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
 App 15275 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
 App 15275 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:24:46.3580 16986/7f6cd275e780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xdGkyNmRrL3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1ti26dk/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '16985', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:24:46.3655 16989/7f96670d3780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.16985/generation-0/request
+[ 2015-02-01 14:24:46.3745 16995/7f3a29e08780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.16985/generation-0/logging
+[ 2015-02-01 14:24:46.3748 16986/7f6cd275e780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 17031 stdout: 
+App 17031 stdout: 
+[ 2015-02-01 14:24:48.9423 16989/7f9666fed700 Pool2/Implementation.cpp:883 ]: Could not spawn process for group /home/phusion/Source/celluloid-websocket-rack/examples#default: An error occured while starting up the preloader.
+     in 'void Passenger::ApplicationPool2::SmartSpawner::handleErrorResponse(Passenger::ApplicationPool2::SmartSpawner::StartupDetails&)' (SmartSpawner.h:455)
+     in 'std::string Passenger::ApplicationPool2::SmartSpawner::negotiatePreloaderStartup(Passenger::ApplicationPool2::SmartSpawner::StartupDetails&)' (SmartSpawner.h:566)
+     in 'void Passenger::ApplicationPool2::SmartSpawner::startPreloader()' (SmartSpawner.h:206)
+     in 'virtual Passenger::ApplicationPool2::ProcessPtr Passenger::ApplicationPool2::SmartSpawner::spawn(const Passenger::ApplicationPool2::Options&)' (SmartSpawner.h:752)
+     in 'void Passenger::ApplicationPool2::Group::spawnThreadRealMain(const SpawnerPtr&, const Passenger::ApplicationPool2::Options&, unsigned int)' (Implementation.cpp:804)
+
+[ 2015-02-01 14:24:48.9425 16989/7f9664ece700 agents/HelperAgent/RequestHandler.h:2222 ]: [Client 20] Cannot checkout session.
+Error page:
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:15: syntax error, unexpected '='
+...sh[env.params.select{|k,v| k ~= /^HTTP_/}.map{|k,v| [k[5..-1...
+...                               ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:15: syntax error, unexpected '}', expecting ']'
+... /^HTTP_/}.map{|k,v| [k[5..-1]}]
+...                               ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:35: syntax error, unexpected keyword_do_block, expecting '}'
+			@parser.on_close do |status, reason|
+			                   ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:35: syntax error, unexpected '|', expecting '='
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:40: syntax error, unexpected keyword_end, expecting '}'
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:42: syntax error, unexpected keyword_do_block, expecting '}'
+			@parser.on_ping do |payload|
+			                  ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:44: syntax error, unexpected keyword_end, expecting '}'
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:47: syntax error, unexpected keyword_do_block, expecting '}'
+...se, :on_ping, :on_pong].each do |meth|
+...                               ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:48: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+			define_method meth do |&proc|
+			                  ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:49: syntax error, unexpected tIDENTIFIER, expecting '}'
+				@parser.send __method__, &proc
+				                       ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:105: syntax error, unexpected keyword_end, expecting '}' (SyntaxError)
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:55:in `require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:55:in `require'
+  /var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:1:in `<top (required)>'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:60:in `require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:60:in `rescue in require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:35:in `require'
+  message_counter.ru:1:in `block in <main>'
+  /var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/builder.rb:55:in `instance_eval'
+  /var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/builder.rb:55:in `initialize'
+  message_counter.ru:1:in `new'
+  message_counter.ru:1:in `<main>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:112:in `eval'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:112:in `preload_app'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:158:in `<module:App>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:29:in `<module:PhusionPassenger>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:28:in `<main>'
+
+[ 2015-02-01 14:25:13.7661 16964/7fec342b9780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:26:06.6074 17198/7f2f68316780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS52eXZvNmkvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.vyvo6i/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '17197', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:26:06.6138 17201/7fe17f6c3780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.17197/generation-0/request
+[ 2015-02-01 14:26:06.6253 17207/7f2156333780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.17197/generation-0/logging
+[ 2015-02-01 14:26:06.6257 17198/7f2f68316780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 17243 stdout: 
+App 17243 stdout: 
+[ 2015-02-01 14:26:09.2204 17201/7fe17f5dd700 Pool2/Implementation.cpp:883 ]: Could not spawn process for group /home/phusion/Source/celluloid-websocket-rack/examples#default: An error occured while starting up the preloader.
+     in 'void Passenger::ApplicationPool2::SmartSpawner::handleErrorResponse(Passenger::ApplicationPool2::SmartSpawner::StartupDetails&)' (SmartSpawner.h:455)
+     in 'std::string Passenger::ApplicationPool2::SmartSpawner::negotiatePreloaderStartup(Passenger::ApplicationPool2::SmartSpawner::StartupDetails&)' (SmartSpawner.h:566)
+     in 'void Passenger::ApplicationPool2::SmartSpawner::startPreloader()' (SmartSpawner.h:206)
+     in 'virtual Passenger::ApplicationPool2::ProcessPtr Passenger::ApplicationPool2::SmartSpawner::spawn(const Passenger::ApplicationPool2::Options&)' (SmartSpawner.h:752)
+     in 'void Passenger::ApplicationPool2::Group::spawnThreadRealMain(const SpawnerPtr&, const Passenger::ApplicationPool2::Options&, unsigned int)' (Implementation.cpp:804)
+
+[ 2015-02-01 14:26:09.2207 17201/7fe17d4be700 agents/HelperAgent/RequestHandler.h:2222 ]: [Client 20] Cannot checkout session.
+Error page:
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:15: syntax error, unexpected '}', expecting ']'
+... /^HTTP_/}.map{|k,v| [k[5..-1]}]
+...                               ^
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:45: syntax error, unexpected keyword_end, expecting '}'
+/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:105: syntax error, unexpected keyword_end, expecting '}' (SyntaxError)
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+  /var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:1:in `<top (required)>'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:60:in `require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:60:in `rescue in require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:35:in `require'
+  message_counter.ru:1:in `block in <main>'
+  /var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/builder.rb:55:in `instance_eval'
+  /var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/builder.rb:55:in `initialize'
+  message_counter.ru:1:in `new'
+  message_counter.ru:1:in `<main>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:112:in `eval'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:112:in `preload_app'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:158:in `<module:App>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:29:in `<module:PhusionPassenger>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:28:in `<main>'
+
+[ 2015-02-01 14:26:42.4137 17332/7f87dbb36780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4zYXB5YTQvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.3apya4/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '17331', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:26:42.4210 17335/7f8cce24e780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.17331/generation-0/request
+[ 2015-02-01 14:26:42.4332 17342/7f6802b72780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.17331/generation-0/logging
+[ 2015-02-01 14:26:42.4335 17332/7f87dbb36780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 17378 stdout: 
+[ 2015-02-01 14:26:45.0337 17335/7f8cce168700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 17378, listening on unix:/tmp/passenger.1.0.17331/generation-0/backends/preloader.17378
+App 17397 stdout: 
+App 17378 stderr: NameError: uninitialized constant URI::Generic
+App 17378 stderr: 	/usr/lib/ruby/1.9.1/uri/common.rb:991:in `URI'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/websocket_parser-1.0.0/lib/websocket/client_handshake.rb:15:in `initialize'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:18:in `new'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:18:in `initialize'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `new'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `initialize_websocket'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:11:in `call'
+App 17378 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 17378 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 17378 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 17378 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 17378 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:27:34.3734 17497/7f1d6f531780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xeHFudHRhL3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1xqntta/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '17496', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:27:34.3795 17500/7f4196442780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.17496/generation-0/request
+[ 2015-02-01 14:27:34.3916 17506/7fe877106780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.17496/generation-0/logging
+[ 2015-02-01 14:27:34.3920 17497/7f1d6f531780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 17544 stdout: 
+[ 2015-02-01 14:27:36.9953 17500/7f419635c700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 17544, listening on unix:/tmp/passenger.1.0.17496/generation-0/backends/preloader.17544
+App 17563 stdout: 
+App 17544 stderr: NameError: uninitialized constant Celluloid::WebSocket::Response
+App 17544 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:27:in `initialize'
+App 17544 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `new'
+App 17544 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `initialize_websocket'
+App 17544 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:11:in `call'
+App 17544 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 17544 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 17544 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 17544 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 17544 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:28:03.4222 17485/7f87dbb36780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:28:34.8608 17680/7fe0d0550780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5sNTJkcmUvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.l52dre/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '17679', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:28:34.8681 17683/7f9dad0b9780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.17679/generation-0/request
+[ 2015-02-01 14:28:34.8785 17689/7f320017b780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.17679/generation-0/logging
+[ 2015-02-01 14:28:34.8797 17680/7fe0d0550780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 17725 stdout: 
+[ 2015-02-01 14:28:37.4581 17683/7f9dacfd3700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 17725, listening on unix:/tmp/passenger.1.0.17679/generation-0/backends/preloader.17725
+App 17746 stdout: 
+App 17725 stderr: NameError: uninitialized constant Celluloid::WebSocket::HandshakeError
+App 17725 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:27:in `initialize'
+App 17725 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `new'
+App 17725 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `initialize_websocket'
+App 17725 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:11:in `call'
+App 17725 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 17725 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 17725 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 17725 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 17725 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:29:03.3842 17661/7f1d6f531780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:29:54.7710 17889/7f61c46e2780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5qbzB0azkvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.jo0tk9/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '17888', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:29:54.7777 17892/7fd6db88e780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.17888/generation-0/request
+[ 2015-02-01 14:29:54.7895 17898/7fc695afc780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.17888/generation-0/logging
+[ 2015-02-01 14:29:54.7898 17889/7f61c46e2780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 17934 stdout: 
+App 17934 stdout: 
+[ 2015-02-01 14:29:57.3806 17892/7fd6db7a8700 Pool2/Implementation.cpp:883 ]: Could not spawn process for group /home/phusion/Source/celluloid-websocket-rack/examples#default: An error occured while starting up the preloader.
+     in 'void Passenger::ApplicationPool2::SmartSpawner::handleErrorResponse(Passenger::ApplicationPool2::SmartSpawner::StartupDetails&)' (SmartSpawner.h:455)
+     in 'std::string Passenger::ApplicationPool2::SmartSpawner::negotiatePreloaderStartup(Passenger::ApplicationPool2::SmartSpawner::StartupDetails&)' (SmartSpawner.h:566)
+     in 'void Passenger::ApplicationPool2::SmartSpawner::startPreloader()' (SmartSpawner.h:206)
+     in 'virtual Passenger::ApplicationPool2::ProcessPtr Passenger::ApplicationPool2::SmartSpawner::spawn(const Passenger::ApplicationPool2::Options&)' (SmartSpawner.h:752)
+     in 'void Passenger::ApplicationPool2::Group::spawnThreadRealMain(const SpawnerPtr&, const Passenger::ApplicationPool2::Options&, unsigned int)' (Implementation.cpp:804)
+
+[ 2015-02-01 14:29:57.3809 17892/7fd6d9689700 agents/HelperAgent/RequestHandler.h:2222 ]: [Client 20] Cannot checkout session.
+Error page:
+uninitialized constant Celluloid::RequestError (NameError)
+  /var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:104:in `<module:Celluloid>'
+  /var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:5:in `<top (required)>'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+  /var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:1:in `<top (required)>'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:60:in `require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:60:in `rescue in require'
+  /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:35:in `require'
+  message_counter.ru:1:in `block in <main>'
+  /var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/builder.rb:55:in `instance_eval'
+  /var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/builder.rb:55:in `initialize'
+  message_counter.ru:1:in `new'
+  message_counter.ru:1:in `<main>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:112:in `eval'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:112:in `preload_app'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:158:in `<module:App>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:29:in `<module:PhusionPassenger>'
+  /home/phusion/Source/passenger/helper-scripts/rack-preloader.rb:28:in `<main>'
+
+[ 2015-02-01 14:30:20.7231 18019/7f85b300e780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5oOW9wMnEvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.h9op2q/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '18017', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:30:20.7305 18022/7f31e47b5780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.18017/generation-0/request
+[ 2015-02-01 14:30:20.7405 18028/7fc8b3f55780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.18017/generation-0/logging
+[ 2015-02-01 14:30:20.7408 18019/7f85b300e780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+[ 2015-02-01 14:30:22.5963 17869/7fe0d0550780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+App 18068 stdout: 
+[ 2015-02-01 14:30:23.3227 18022/7f31e46cf700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 18068, listening on unix:/tmp/passenger.1.0.18017/generation-0/backends/preloader.18068
+App 18087 stdout: 
+App 18068 stderr: Celluloid::HandshakeError: error during handshake: Connection upgrade is not for websocket
+App 18068 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:27:in `initialize'
+App 18068 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `new'
+App 18068 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `initialize_websocket'
+App 18068 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:11:in `call'
+App 18068 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 18068 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 18068 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 18068 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 18068 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:35:27.7452 18449/7f48493ad780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xZGl1aTQ3L3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1diui47/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '18448', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:35:27.7524 18452/7f8d7a0db780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.18448/generation-0/request
+[ 2015-02-01 14:35:27.7631 18458/7fc4d9bda780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.18448/generation-0/logging
+[ 2015-02-01 14:35:27.7635 18449/7f48493ad780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 18496 stdout: 
+[ 2015-02-01 14:35:30.3461 18452/7f8d79ff5700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 18496, listening on unix:/tmp/passenger.1.0.18448/generation-0/backends/preloader.18496
+App 18515 stdout: 
+[ 2015-02-01 14:35:56.7589 18437/7f85b300e780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+App 18496 stderr: NoMethodError: undefined method `downcase' for nil:NilClass
+App 18496 stderr: 	/var/lib/gems/1.9.1/gems/websocket_parser-1.0.0/lib/websocket/client_handshake.rb:23:in `valid?'
+App 18496 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:19:in `initialize'
+App 18496 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `new'
+App 18496 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `initialize_websocket'
+App 18496 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `call'
+App 18496 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 18496 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 18496 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 18496 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 18496 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:40:25.2898 18878/7f06d4738780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xbTlwNWhsL3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1m9p5hl/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '18877', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:40:25.2956 18881/7ffb8f8cd780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.18877/generation-0/request
+[ 2015-02-01 14:40:25.3076 18887/7f6a6da1f780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.18877/generation-0/logging
+[ 2015-02-01 14:40:25.3080 18878/7f06d4738780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 18925 stdout: 
+[ 2015-02-01 14:40:27.9403 18881/7ffb8f7e7700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 18925, listening on unix:/tmp/passenger.1.0.18877/generation-0/backends/preloader.18925
+App 18944 stdout: 
+App 18925 stderr: NameError: uninitialized constant Celluloid::WebSocket::CASE_INSENSITIVE_HASH
+App 18925 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:20:in `initialize'
+App 18925 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `new'
+App 18925 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `initialize_websocket'
+App 18925 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `call'
+App 18925 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 18925 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 18925 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 18925 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 18925 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:40:54.2704 18864/7f48493ad780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:41:04.5358 19056/7fb8355ec780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5ja2JkcHAvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.ckbdpp/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '19055', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:41:04.5429 19059/7ff6e4f18780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.19055/generation-0/request
+[ 2015-02-01 14:41:04.5536 19066/7f07469a0780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.19055/generation-0/logging
+[ 2015-02-01 14:41:04.5539 19056/7fb8355ec780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 19101 stdout: 
+[ 2015-02-01 14:41:07.1651 19059/7ff6e4e32700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 19101, listening on unix:/tmp/passenger.1.0.19055/generation-0/backends/preloader.19101
+App 19120 stdout: 
+App 19101 stderr: NoMethodError: undefined method `downcase' for nil:NilClass
+App 19101 stderr: 	/var/lib/gems/1.9.1/gems/websocket_parser-1.0.0/lib/websocket/client_handshake.rb:23:in `valid?'
+App 19101 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:23:in `initialize'
+App 19101 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `new'
+App 19101 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `initialize_websocket'
+App 19101 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `call'
+App 19101 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 19101 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 19101 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 19101 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 19101 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:41:30.6225 19032/7f06d4738780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:41:44.4874 19227/7f28f727c780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5mcTk5NDYvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.fq9946/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '19226', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:41:44.4939 19230/7f44ca2db780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.19226/generation-0/request
+[ 2015-02-01 14:41:44.5057 19236/7f124469c780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.19226/generation-0/logging
+[ 2015-02-01 14:41:44.5071 19227/7f28f727c780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 19272 stdout: 
+[ 2015-02-01 14:41:47.1241 19230/7f44ca1f5700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 19272, listening on unix:/tmp/passenger.1.0.19226/generation-0/backends/preloader.19272
+App 19293 stdout: 
+App 19293 stdout: {}
+App 19272 stderr: NoMethodError: undefined method `downcase' for nil:NilClass
+App 19272 stderr: 	/var/lib/gems/1.9.1/gems/websocket_parser-1.0.0/lib/websocket/client_handshake.rb:23:in `valid?'
+App 19272 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:26:in `initialize'
+App 19272 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `new'
+App 19272 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `initialize_websocket'
+App 19272 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `call'
+App 19272 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 19272 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 19272 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 19272 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 19272 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:42:13.1477 19208/7fb8355ec780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:42:28.5767 19403/7f94e22d4780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xaHozdXA1L3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.1hz3up5/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '19402', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:42:28.5831 19406/7f2ced95a780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.19402/generation-0/request
+[ 2015-02-01 14:42:28.5946 19411/7f51f9149780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.19402/generation-0/logging
+[ 2015-02-01 14:42:28.5949 19403/7f94e22d4780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 19448 stdout: 
+[ 2015-02-01 14:42:31.1874 19406/7f2ced874700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 19448, listening on unix:/tmp/passenger.1.0.19402/generation-0/backends/preloader.19448
+App 19467 stdout: 
+App 19467 stdout: {}
+App 19467 stdout: 
+App 19467 stdout: {}
+App 19448 stderr: NoMethodError: undefined method `downcase' for nil:NilClass
+App 19448 stderr: 	/var/lib/gems/1.9.1/gems/websocket_parser-1.0.0/lib/websocket/client_handshake.rb:23:in `valid?'
+App 19448 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:28:in `initialize'
+App 19448 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `new'
+App 19448 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:19:in `initialize_websocket'
+App 19448 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:15:in `call'
+App 19448 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 19448 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 19448 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 19448 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 19448 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:42:56.5999 19381/7f28f727c780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:47:58.2935 19817/7f5608057780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS56dGJteHMvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.ztbmxs/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '19816', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:47:58.3007 19820/7fd4c8ebc780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.19816/generation-0/request
+[ 2015-02-01 14:47:58.3109 19826/7fba477a6780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.19816/generation-0/logging
+[ 2015-02-01 14:47:58.3112 19817/7f5608057780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 19862 stdout: 
+[ 2015-02-01 14:48:00.9389 19820/7fd4c8dd6700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 19862, listening on unix:/tmp/passenger.1.0.19816/generation-0/backends/preloader.19862
+App 19881 stdout: 
+App 19881 stdout: {"DOCUMENT_ROOT"=>"/home/phusion/Source/celluloid-websocket-rack/examples/public", "SCRIPT_NAME"=>"", "PATH_INFO"=>"/websocket", "REQUEST_URI"=>"/websocket", "SERVER_NAME"=>"localhost", "PASSENGER_APP_ENV"=>"development", "PASSENGER_MIN_PROCESSES"=>"1", "PASSENGER_USER"=>"phusion", "PASSENGER_APP_ROOT"=>"/home/phusion/Source/celluloid-websocket-rack/examples", "PASSENGER_SPAWN_METHOD"=>"smart", "PASSENGER_STARTUP_FILE"=>"message_counter.ru", "PASSENGER_APP_TYPE"=>"rack", "SCGI"=>"1", "QUERY_STRING"=>"", "REQUEST_METHOD"=>"GET", "SERVER_PROTOCOL"=>"HTTP/1.1", "SERVER_SOFTWARE"=>"nginx/1.4.7", "REMOTE_ADDR"=>"127.0.0.1", "REMOTE_PORT"=>"34855", "SERVER_ADDR"=>"127.0.0.1", "SERVER_PORT"=>"3000", "HTTP_HOST"=>"localhost:3000", "HTTP_CONNECTION"=>"Upgrade", "HTTP_PRAGMA"=>"no-cache", "HTTP_CACHE_CONTROL"=>"no-cache", "HTTP_UPGRADE"=>"websocket", "HTTP_ORIGIN"=>"http://localhost:3000", "HTTP_SEC_WEBSOCKET_VERSION"=>"13", "HTTP_USER_AGENT"=>"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36", "HTTP_ACCEPT_ENCODING"=>"gzip, deflate, sdch", "HTTP_ACCEPT_LANGUAGE"=>"en-US,en;q=0.8,nl;q=0.6", "HTTP_SEC_WEBSOCKET_KEY"=>"PMpoDv8hJvbUv5NKZBdrLw==", "HTTP_SEC_WEBSOCKET_EXTENSIONS"=>"permessage-deflate; client_max_window_bits", "PASSENGER_CONNECT_PASSWORD"=>"xTxNKX7d4jIH7JLOIDpw8YZhgaGN4IPVjMVWR7AI62k", "rack.version"=>[1, 2], "rack.input"=>#<PhusionPassenger::Utils::TeeInput:0x0000000168a3e8 @len=0, @socket=#<PhusionPassenger::Utils::UnseekableSocket:0x000000016840b0 @socket=#<UNIXSocket:fd 9>>, @bytes_read=0, @tmp=#<StringIO:0x0000000168a320>>, "rack.errors"=>#<IO:<STDERR>>, "rack.multithread"=>false, "rack.multiprocess"=>true, "rack.run_once"=>false, "rack.url_scheme"=>"http", "rack.hijack?"=>true, "rack.hijack"=>#<Proc:0x00000001689da8@/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:69 (lambda)>, "rack.hijack_io"=>#<PhusionPassenger::Utils::UnseekableSocket:0x000000016840b0 @socket=#<UNIXSocket:fd 9>>}
+App 19862 stderr: NameError: uninitialized constant Celluloid::WebSocket::Rack::Request
+App 19862 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:29:in `initialize'
+App 19862 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:18:in `new'
+App 19862 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:18:in `initialize_websocket'
+App 19881 stdout: {"HOST"=>"localhost:3000", "CONNECTION"=>"Upgrade", "PRAGMA"=>"no-cache", "CACHE_CONTROL"=>"no-cache", "UPGRADE"=>"websocket", "ORIGIN"=>"http://localhost:3000", "SEC_WEBSOCKET_VERSION"=>"13", "USER_AGENT"=>"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36", "ACCEPT_ENCODING"=>"gzip, deflate, sdch", "ACCEPT_LANGUAGE"=>"en-US,en;q=0.8,nl;q=0.6", "SEC_WEBSOCKET_KEY"=>"PMpoDv8hJvbUv5NKZBdrLw==", "SEC_WEBSOCKET_EXTENSIONS"=>"permessage-deflate; client_max_window_bits"}
+App 19862 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:14:in `call'
+App 19862 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 19862 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 19862 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 19862 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 19862 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:48:24.0832 19969/7fab84877780 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'phusion', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS5kNDRkdWMvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'phusion', 'default_python' => 'python', 'default_ruby' => '/usr/bin/ruby1.9.1', 'default_user' => 'phusion', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.d44duc/locations.ini', 'passenger_version' => '4.0.42', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.42', 'web_server_pid' => '19968', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2015-02-01 14:48:24.0905 19972/7f8f490e0780 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.19968/generation-0/request
+[ 2015-02-01 14:48:24.1006 19978/7f310c902780 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.19968/generation-0/logging
+[ 2015-02-01 14:48:24.1009 19969/7fab84877780 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 20018 stdout: 
+[ 2015-02-01 14:48:26.7007 19972/7f8f48ffa700 Pool2/SmartSpawner.h:301 ]: Preloader for /home/phusion/Source/celluloid-websocket-rack/examples started on PID 20018, listening on unix:/tmp/passenger.1.0.19968/generation-0/backends/preloader.20018
+App 20037 stdout: 
+[ 2015-02-01 14:48:26.8229 19798/7f94e22d4780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+App 20037 stdout: {"DOCUMENT_ROOT"=>"/home/phusion/Source/celluloid-websocket-rack/examples/public", "SCRIPT_NAME"=>"", "PATH_INFO"=>"/websocket", "REQUEST_URI"=>"/websocket", "SERVER_NAME"=>"localhost", "PASSENGER_APP_ENV"=>"development", "PASSENGER_MIN_PROCESSES"=>"1", "PASSENGER_USER"=>"phusion", "PASSENGER_APP_ROOT"=>"/home/phusion/Source/celluloid-websocket-rack/examples", "PASSENGER_SPAWN_METHOD"=>"smart", "PASSENGER_STARTUP_FILE"=>"message_counter.ru", "PASSENGER_APP_TYPE"=>"rack", "SCGI"=>"1", "QUERY_STRING"=>"", "REQUEST_METHOD"=>"GET", "SERVER_PROTOCOL"=>"HTTP/1.1", "SERVER_SOFTWARE"=>"nginx/1.4.7", "REMOTE_ADDR"=>"127.0.0.1", "REMOTE_PORT"=>"34861", "SERVER_ADDR"=>"127.0.0.1", "SERVER_PORT"=>"3000", "HTTP_HOST"=>"localhost:3000", "HTTP_CONNECTION"=>"Upgrade", "HTTP_PRAGMA"=>"no-cache", "HTTP_CACHE_CONTROL"=>"no-cache", "HTTP_UPGRADE"=>"websocket", "HTTP_ORIGIN"=>"http://localhost:3000", "HTTP_SEC_WEBSOCKET_VERSION"=>"13", "HTTP_USER_AGENT"=>"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36", "HTTP_ACCEPT_ENCODING"=>"gzip, deflate, sdch", "HTTP_ACCEPT_LANGUAGE"=>"en-US,en;q=0.8,nl;q=0.6", "HTTP_SEC_WEBSOCKET_KEY"=>"wD13dtF5EuM/Z0//G54BVQ==", "HTTP_SEC_WEBSOCKET_EXTENSIONS"=>"permessage-deflate; client_max_window_bits", "PASSENGER_CONNECT_PASSWORD"=>"cgn6yPOeHzIvgV3cCIMrSQ20AS5cEKOsdWFkyAgdBqG", "rack.version"=>[1, 2], "rack.input"=>#<PhusionPassenger::Utils::TeeInput:0x00000000c9ddf8 @len=0, @socket=#<PhusionPassenger::Utils::UnseekableSocket:0x00000000c97638 @socket=#<UNIXSocket:fd 9>>, @bytes_read=0, @tmp=#<StringIO:0x00000000ca5d00>>, "rack.errors"=>#<IO:<STDERR>>, "rack.multithread"=>false, "rack.multiprocess"=>true, "rack.run_once"=>false, "rack.url_scheme"=>"http", "rack.hijack?"=>true, "rack.hijack"=>#<Proc:0x00000000ca53f0@/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:69 (lambda)>, "rack.hijack_io"=>#<PhusionPassenger::Utils::UnseekableSocket:0x00000000c97638 @socket=#<UNIXSocket:fd 9>>}
+App 20037 stdout: {"HOST"=>"localhost:3000", "CONNECTION"=>"Upgrade", "PRAGMA"=>"no-cache", "CACHE_CONTROL"=>"no-cache", "UPGRADE"=>"websocket", "ORIGIN"=>"http://localhost:3000", "SEC_WEBSOCKET_VERSION"=>"13", "USER_AGENT"=>"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36", "ACCEPT_ENCODING"=>"gzip, deflate, sdch", "ACCEPT_LANGUAGE"=>"en-US,en;q=0.8,nl;q=0.6", "SEC_WEBSOCKET_KEY"=>"wD13dtF5EuM/Z0//G54BVQ==", "SEC_WEBSOCKET_EXTENSIONS"=>"permessage-deflate; client_max_window_bits"}
+App 20018 stderr: Celluloid::HandshakeError: error during handshake: Protocol version not supported ''
+App 20018 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket.rb:38:in `initialize'
+App 20018 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:18:in `new'
+App 20018 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:18:in `initialize_websocket'
+App 20018 stderr: 	/var/lib/gems/1.9.1/gems/celluloid-websocket-0.0.1/lib/celluloid/websocket/rack.rb:14:in `call'
+App 20018 stderr: 	/var/lib/gems/1.9.1/gems/rack-1.6.0/lib/rack/showexceptions.rb:24:in `call'
+App 20018 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+App 20018 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+App 20018 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+App 20018 stderr: 	/home/phusion/Source/passenger/lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads'
+[ 2015-02-01 14:48:51.3736 19947/7f5608057780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.
+[ 2015-02-01 14:52:48.0304 20296/7fab84877780 agents/Watchdog/Main.cpp:386 ]: Some Phusion Passenger agent processes did not exit in time, forcefully shutting down all.

@@ -5,10 +5,13 @@ module Celluloid
 	class WebSocket
 		class Rack
 			def call(env)
-				env['rack.hijack'].call
+				if env['HTTP_UPGRADE'].nil? || env['HTTP_UPGRADE'].downcase != 'websocket'
+					return [400, {}, "No Upgrade header or Upgrade not for websocket."]
+				end
+
+        		env['rack.hijack'].call
 				socket = env['rack.hijack_io']
-				req = ::Rack::Request.new(env)
-				initialize_websocket(req, socket)
+				initialize_websocket(env, socket)
 			end
 
 			def initialize_websocket(req, socket)
