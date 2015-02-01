@@ -23,4 +23,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "http"
   spec.add_dependency "websocket_parser", "~> 1.0"
+  spec.add_dependency "celluloid"
+  spec.add_dependency "celluloid-io"
 end

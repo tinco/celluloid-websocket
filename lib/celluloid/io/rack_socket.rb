@@ -1,4 +1,6 @@
 require 'forwardable'
+require 'celluloid/io'
+
 module Celluloid
 	module IO
 		# Wraps a socket as gotten from the Rack hijack API
@@ -8,6 +10,7 @@ module Celluloid
 			def_delegators :@socket, :read_nonblock, :write_nonblock, :close, :close_read, :close_write, :closed?
 
 			def initialize(socket)
+				super()
 				@socket = socket
 			end
 

@@ -11,7 +11,7 @@ module Celluloid
 				end
 
         		env['rack.hijack'].call
-				socket = RackSocket.new(env['rack.hijack_io'])
+				socket = Celluloid::IO::RackSocket.new(env['rack.hijack_io'])
 				initialize_websocket(env, socket)
 			end
 
@@ -19,6 +19,7 @@ module Celluloid
 				@websocket = WebSocket.new(req, socket)
 				[:next_message, :next_messages, :on_message, :on_error, :on_close, :on_ping, :on_pong].each do |meth|
 					@websocket.send(meth) do |*args, &proc|
+						puts "I got a message!"
 						self.send(meth, *args, &proc)
 					end
 				end
