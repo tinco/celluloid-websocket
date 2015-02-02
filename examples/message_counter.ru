@@ -1,27 +1,19 @@
 require 'celluloid/websocket/rack'
 
 class WebSocketEcho < Celluloid::WebSocket::Rack
-	def initialize
-		puts "initialized"
-	end
-
 	def on_open
 		@counter = 0
-		puts "Got opened"
 
 		while(true)
 			message = read
-			puts "Read a message: #{message}"
+
+			@counter += 1
+			write("#{@counter}: #{message}")
 		end
 	end
 
-	def on_ping
-		puts "Got a ping!"
-	end
-
-	def on_message(message)
-		@counter += 1
-		write("#{@counter}: #{message}")
+	def on_error(*args)
+		puts args.inspect
 	end
 end
 

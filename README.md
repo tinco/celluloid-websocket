@@ -1,14 +1,14 @@
-# Celluloid::WebSocket::Rack
+# Celluloid::WebSocket
 
 Lets you make a websocket rack application using Celluloid.
 
-This is basically a small wrapper around Tony Arcieri's Reel::Websocket class.
+With thanks to Tony Arcieri for his awesome Celluloid libraries.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'celluloid-websocket-rack'
+    gem 'celluloid-websocket'
 
 And then execute:
 
@@ -16,23 +16,34 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install celluloid-websocket-rack
+    $ gem install celluloid-websocket
 
 ## Usage
 
 Simply inherit your Rack app from Celluloid::WebSocket::Rack, and use the on_* handlers to build a protocol:
 
 ```
-class WebSocketEcho < Celluloid::WebSocket::Rack
-	def initialize
-		@counter = 0
-	end
+require 'celluloid/websocket/rack'
 
-	on_message do |message|
-		@counter += 1
-		write("#{@counter}: #{message}")
+class WebSocketEcho < Celluloid::WebSocket::Rack
+	def on_open
+		@counter = 0
+
+		while(true)
+			message = read
+			@counter += 1
+			write("#{@counter}: #{message}")			
+		end
 	end
 end
+
+run(WebSocketEcho)
+```
+
+You can try it out by cloning this repository, going to the examples directory and running:
+
+```
+passenger start -R message_counter.ru
 ```
 
 ## Contributing
