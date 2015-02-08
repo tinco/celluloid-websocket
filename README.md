@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Simply inherit your Rack app from Celluloid::WebSocket::Rack, and use the on_* handlers to build a protocol:
+Simply inherit your Rack app from Celluloid::WebSocket::Rack, and implement the `on_open` method and using the `read` and `write` functions to implement a protocol. 
 
 ```
 require 'celluloid/websocket/rack'
@@ -40,10 +40,10 @@ end
 run(WebSocketEcho)
 ```
 
-You can try it out by cloning this repository, going to the examples directory and running:
+You can try it out by cloning this repository running `bundle` and then:
 
 ```
-passenger start -R message_counter.ru
+passenger start -R examples/message_counter.ru
 ```
 
 ## Contributing

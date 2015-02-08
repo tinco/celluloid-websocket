@@ -1,5 +1,5 @@
 require 'forwardable'
-require 'websocket_parser'
+require 'websocket/driver'
 require 'uri'
 require 'rack/request'
 
@@ -7,83 +7,43 @@ module Celluloid
 	class WebSocket
 		extend Forwardable
 
-		BUFFER_SIZE = 16384
-
-		CASE_INSENSITIVE_HASH = Hash.new do |hash, key|
-			hash[hash.keys.find {|k| k =~ /#{key}/i}] if key
-		end
-
-		attr_reader :socket, :env
-		def_delegators :@socket, :addr, :peeraddr
+		attr_accessor :socket, :env
 
 		def initialize(env, socket)
 			@env = env
-			@socket = socket
+    	@socket = socket
 
-			# TODO we expect env to match the rack standard here, which might be awkward for non-rack servers (like Reel).
-			headers = CASE_INSENSITIVE_HASH.merge Hash[env.select{|k,v| k =~ /^HTTP_/}.map{|k,v| [k[5..-1].gsub('_','-'),v] }]
-			req = ::Rack::Request.new(env)
-			handshake = ::WebSocket::ClientHandshake.new(:get, req.url, headers)
+    	driver_env = DriverEnvironment.new(env, socket) 
 
-			if handshake.valid?
-				response = handshake.accept_response
-				response.render(socket)
-			else
-				error = handshake.errors.first
+			@driver = ::WebSocket::Driver.rack(driver_env)
 
-				raise HandshakeError, "error during handshake: #{error}"
+			@driver.on(:close) do
+				@socket.close
 			end
 
-			@parser = ::WebSocket::Parser.new
+			@message_stream = MessageStream.new(socket, @driver)
 
-			@parser.on_close do |status, reason|
-				# According to the spec the server must respond with another
-				# close message before closing the connection
-				@socket << ::WebSocket::Message.close.to_data
-				close
-			end
-
-			@parser.on_ping do |payload|
-				@socket << ::WebSocket::Message.pong(payload).to_data
-			end
+			@driver.start
+		rescue EOFError
+			close
 		end
 
-		[:next_message, :next_messages, :on_message, :on_error, :on_close, :on_ping, :on_pong].each do |meth|
-			define_method meth do |&proc|
-				@parser.send __method__, &proc
-			end
+		def read
+			@message_stream.read
 		end
 
-		def read_every(n, unit = :s)
-			cancel_timer! # only one timer allowed per stream
-			seconds = case unit.to_s
-			when /\Am/
-				n * 60
-			when /\Ah/
-				n * 3600
-			else
-				n
-			end
-			@timer = Celluloid.every(seconds) { read }
-		end
-		alias read_interval  read_every
-		alias read_frequency read_every
-
-		def read(buffer_size = BUFFER_SIZE)
-			@parser.append @socket.readpartial(buffer_size) until msg = @parser.next_message
-			msg
-		rescue
-			cancel_timer!
-			raise
-		end
-
-		def body
-			nil
+		def closed?
+			@socket.closed?
 		end
 
 		def write(msg)
-			@socket << ::WebSocket::Message.new(msg).to_data
-			msg
+			if msg.is_a? String
+				@driver.text(msg)
+			elsif msg.is_a? Array
+				@driver.binary(msg)
+			else
+				raise "Can only send byte array or string over driver."
+			end
 		rescue IOError, Errno::ECONNRESET, Errno::EPIPE
 			cancel_timer!
 			raise SocketError, "error writing to socket"
@@ -93,20 +53,51 @@ module Celluloid
 		end
 		alias_method :<<, :write
 
-		def closed?
-			@socket.closed?
-		end
-
 		def close
-			cancel_timer!
-			@socket.close unless closed?
+			@driver.close
+			@socket.close
 		end
 
-		def cancel_timer!
-			@timer && @timer.cancel
+		private
+
+		class DriverEnvironment
+			extend Forwardable
+
+			attr_reader :env, :url, :socket
+
+			def_delegators :socket, :write
+
+			def initialize(env, socket)
+				@env = env
+
+				secure = ::Rack::Request.new(env).ssl?
+   			scheme = secure ? 'wss:' : 'ws:'
+        @url = scheme + '//' + env['HTTP_HOST'] + env['REQUEST_URI']
+
+				@socket = socket
+			end
 		end
-		
-		# Error occured during a WebSockets handshake
-		class HandshakeError < StandardError; end
+
+		class MessageStream
+			BUFFER_SIZE = 16384
+
+			def initialize(socket, driver)
+				@socket = socket
+				@driver = driver
+				@message_buffer = []
+
+				@driver.on :message do |message|
+					@message_buffer.push(message.data)
+				end
+			end
+
+			def read
+				while @message_buffer.empty?
+					buffer = @socket.readpartial(BUFFER_SIZE)
+					@driver.parse(buffer)
+				end
+				@message_buffer.shift
+			end
+		end
 	end
 end

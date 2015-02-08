@@ -31,12 +31,6 @@ module Celluloid
 
 			def initialize_websocket(req, socket)
 				@websocket = WebSocket.new(req, socket)
-				[:next_message, :next_messages, :on_message, :on_error, :on_close, :on_ping, :on_pong].each do |meth|
-					@websocket.send(meth) do |*args, &proc|
-						send(meth, *args, &proc) if respond_to? meth
-					end
-				end
-
 				on_open if respond_to? :on_open
 			end
 

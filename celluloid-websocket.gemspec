@@ -22,7 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
   spec.add_dependency "http"
-  spec.add_dependency "websocket_parser", "~> 1.0"
+  spec.add_dependency "websocket-driver", '>= 0.5.1'
+  spec.add_dependency "rack"
   spec.add_dependency "celluloid"
   spec.add_dependency "celluloid-io"
 end
