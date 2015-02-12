@@ -11,9 +11,9 @@ module Celluloid
 
 		def initialize(env, socket)
 			@env = env
-    	@socket = socket
+			@socket = socket
 
-    	driver_env = DriverEnvironment.new(env, socket) 
+			driver_env = DriverEnvironment.new(env, socket) 
 
 			@driver = ::WebSocket::Driver.rack(driver_env)
 
@@ -45,11 +45,7 @@ module Celluloid
 				raise "Can only send byte array or string over driver."
 			end
 		rescue IOError, Errno::ECONNRESET, Errno::EPIPE
-			cancel_timer!
 			raise SocketError, "error writing to socket"
-		rescue
-			cancel_timer!
-			raise
 		end
 		alias_method :<<, :write
 
@@ -71,8 +67,8 @@ module Celluloid
 				@env = env
 
 				secure = ::Rack::Request.new(env).ssl?
-   			scheme = secure ? 'wss:' : 'ws:'
-        @url = scheme + '//' + env['HTTP_HOST'] + env['REQUEST_URI']
+				scheme = secure ? 'wss:' : 'ws:'
+				@url = scheme + '//' + env['HTTP_HOST'] + env['REQUEST_URI']
 
 				@socket = socket
 			end
