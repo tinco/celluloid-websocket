@@ -7,16 +7,24 @@ require 'forwardable'
 
 module Celluloid
 	class WebSocket
+		def self.rack(klass, config={})
+			proc do |env|
+				# We need to create the pool in the first request
+				# because we might've been forked before.
+				@pool ||= klass.pool(config)
+				@pool.(env)
+			end
+		end
+
 		class Rack
 			extend Forwardable
-			include Celluloid::IO
-			include Celluloid::Logger
+			include Celluloid
 
 			finalizer :shutdown
 
 			def_delegators :@websocket, :socket, :env, :addr, :peeraddr, :read, :read_every, :write, :<<, :closed?, :close, :cancel_timer!
 
-			def self.call(env)
+			def call(env)
 				if env['HTTP_UPGRADE'].nil? || env['HTTP_UPGRADE'].downcase != 'websocket'
 					return [400, {}, "No Upgrade header or Upgrade not for websocket."]
 				end
@@ -24,8 +32,7 @@ module Celluloid
 				env['rack.hijack'].call
 				socket = Celluloid::IO::RackSocket.new(env['rack.hijack_io'].to_io)
 
-				actor = new()
-				actor.async.initialize_websocket(env, socket)
+				async.initialize_websocket(env, socket)
 				[200,{},""]
 			end
 

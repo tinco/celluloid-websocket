@@ -3,7 +3,6 @@ require 'celluloid/websocket/rack'
 class WebSocketEcho < Celluloid::WebSocket::Rack
 	def on_open
 		@counter = 0
-
 		while(true)
 			message = read
 
@@ -17,4 +16,4 @@ class WebSocketEcho < Celluloid::WebSocket::Rack
 	end
 end
 
-run(WebSocketEcho)
+run Celluloid::WebSocket.rack(WebSocketEcho)
