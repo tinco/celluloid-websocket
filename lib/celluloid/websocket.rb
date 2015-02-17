@@ -6,10 +6,13 @@ require 'rack/request'
 module Celluloid
 	class WebSocket
 		extend Forwardable
+		include Celluloid
+
+		finalizer :shutdown
 
 		attr_accessor :socket, :env
 
-		def initialize(env, socket)
+		def initialize_websocket(env, socket)
 			@env = env
 			@socket = socket
 
@@ -24,6 +27,8 @@ module Celluloid
 			@message_stream = MessageStream.new(socket, @driver)
 
 			@driver.start
+
+			on_open if respond_to? :on_open
 		rescue EOFError
 			close
 		end
@@ -50,8 +55,12 @@ module Celluloid
 		alias_method :<<, :write
 
 		def close
-			@driver.close
-			@socket.close
+			@driver.close unless @driver.nil? || @driver.closed?
+			@socket.close unless @socket.nil? || @socket.closed?
+		end
+
+		def shutdown
+			close
 		end
 
 		private

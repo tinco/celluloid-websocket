@@ -1,6 +1,6 @@
 require 'celluloid/websocket/rack'
 
-class WebSocketEcho < Celluloid::WebSocket::Rack
+class WebSocketEcho < Celluloid::WebSocket
 	def on_open
 		@counter = 0
 		while(true)
@@ -16,4 +16,4 @@ class WebSocketEcho < Celluloid::WebSocket::Rack
 	end
 end
 
-run Celluloid::WebSocket.rack(WebSocketEcho)
+run WebSocketEcho.rack
