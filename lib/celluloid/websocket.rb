@@ -55,7 +55,7 @@ module Celluloid
 		alias_method :<<, :write
 
 		def close
-			@driver.close unless @driver.nil? || @driver.closed?
+			@driver.close unless @driver.nil?
 			@socket.close unless @socket.nil? || @socket.closed?
 		end
 

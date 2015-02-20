@@ -1,6 +1,8 @@
 require 'celluloid/websocket/rack'
 
 class WebSocketEcho < Celluloid::WebSocket
+	include Celluloid::Logger
+
 	def on_open
 		@counter = 0
 		while(true)
@@ -9,6 +11,9 @@ class WebSocketEcho < Celluloid::WebSocket
 			@counter += 1
 			write("#{@counter}: #{message}")
 		end
+	rescue => e
+		info "Exiting because: #{e.message}"
+		close
 	end
 
 	def on_error(*args)
