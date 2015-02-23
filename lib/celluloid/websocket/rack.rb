@@ -8,6 +8,10 @@ require 'forwardable'
 module Celluloid
 	class WebSocket
 		def self.rack(config={})
+			if defined?(PhusionPassenger)
+				PhusionPassenger.advertised_concurrency_level = 0
+			end
+
 			lambda do |env|
 				# We need to create the pool in the first request
 				# because we might've been forked before.
