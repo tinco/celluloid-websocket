@@ -18,6 +18,11 @@ module Celluloid
 				@socket
 			end
 
+			def readpartial(bufsize)
+				result = super(bufsize)
+				result
+			end
+
 			# Receives a message
 			def recv(maxlen, flags=nil)
 				raise NotImplementedError, "flags not supported" if flags && !flags.zero?

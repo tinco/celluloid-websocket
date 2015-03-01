@@ -6,7 +6,7 @@ require 'rack/request'
 module Celluloid
 	class WebSocket
 		extend Forwardable
-		include Celluloid
+		include Celluloid::IO
 
 		finalizer :shutdown
 
