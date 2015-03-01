@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tinco Andringa"]
   spec.email         = ["mail@tinco.nl"]
   spec.description   = "Lets you make a websocket rack application using Celluloid."
-  spec.summary       = "This is basically a small wrapper around Tony Arcieri's Reel::Websocket class."
+  spec.summary       = "Lets you make a websocket rack application using Celluloid."
   spec.homepage      = "https://github.com/d-snp/celluloid-websocket"
   spec.license       = "MIT"
 
