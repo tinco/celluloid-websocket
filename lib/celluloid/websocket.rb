@@ -31,6 +31,8 @@ module Celluloid
 			on_open if respond_to? :on_open
 		rescue EOFError
 			close
+		rescue => e
+			on_error(e) if respond_to? :on_error
 		end
 
 		def read
