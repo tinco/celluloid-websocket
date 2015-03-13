@@ -7,7 +7,7 @@ require 'forwardable'
 
 module Celluloid
 	class WebSocket
-		def self.rack(config={})
+		def self.rack(*args)
 			if defined?(PhusionPassenger)
 				PhusionPassenger.advertised_concurrency_level = 0
 			end
@@ -20,7 +20,7 @@ module Celluloid
 				env['rack.hijack'].call
 				socket = Celluloid::IO::RackSocket.new(env['rack.hijack_io'].to_io)
 				
-				new(*config[:args]).async.initialize_websocket(env, socket)
+				new(*args).async.initialize_websocket(env, socket)
 				[200,{},""]
 			end
 		end
