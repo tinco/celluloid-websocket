@@ -1,5 +1,7 @@
 # Celluloid::WebSocket
 
+[![Join the chat at https://gitter.im/d-snp/celluloid-websocket](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/d-snp/celluloid-websocket?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Lets you make a websocket rack application using Celluloid.
 
 With thanks to Tony Arcieri for his awesome Celluloid libraries.
